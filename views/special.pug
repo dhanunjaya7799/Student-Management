@@ -1,0 +1,235 @@
+doctype html
+html
+  head
+    title Dashboard
+    style.
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        height: 100vh;
+      }
+      .sidebar {
+        width: 220px;
+        background: #343a40;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .sidebar h2 {
+        margin-top: 0;
+        font-size: 22px;
+      }
+      .sidebar button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+      .sidebar a {
+        display: block;
+        width: 88%;
+        text-decoration: none ;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        text-align:center;
+      }
+      .content {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        display: flex;
+        margin-bottom: 12px;
+      }
+      .form-group label {
+        flex: 1;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        flex: 2;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .submit-btn {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .submit-btn button {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+  body
+    .sidebar
+      h2 Menu
+      button(onclick="showForm('student')") Add Student
+      button(onclick="showForm('attendance')") Add Attendance
+      button(onclick="showForm('userregister')") Add User
+
+      a(href="/userlogin")  logout
+
+
+    .content
+      #studentForm(style="display: none;")
+        form(action="/register" method="POST" enctype="multipart/form-data")
+          h2 Student Biodata Form
+          .form-group
+            label Name:
+            input(type="text" name="name" placeholder="Enter Name" required)
+          .form-group
+            label Password:
+            input(type="password" name="password" placeholder="Enter Password" required)
+          .form-group
+            label Admission No:
+            input(type="text" name="admissionNo" placeholder="Enter Admission No" required)
+          .form-group
+            label Roll No:
+            input(type="text" name="rollNo" placeholder="Enter Roll No")
+          .form-group
+            label Course:
+            input(type="text" name="course" placeholder="Enter Course")
+          .form-group
+            label Branch:
+            input(type="text" name="branch" placeholder="Enter Branch")
+          .form-group
+            label Semester:
+            input(type="text" name="semester" placeholder="Enter Semester")
+          .form-group
+            label Gender:
+            select(name="gender")
+              option Male
+              option Female
+              option Other
+          .form-group
+            label DOB:
+            input(type="date" name="dob" value="2004-12-19")
+          .form-group
+            label Nationality:
+            input(type="text" name="nationality" placeholder="Enter Nationality")
+          .form-group
+            label Religion:
+            input(type="text" name="religion" placeholder="Enter Religion")
+          .form-group
+            label SSC Marks %:
+            input(type="text" name="sscMarks" placeholder="Enter SSC Marks %")
+          .form-group
+            label SSC Gradepoints:
+            input(type="text" name="sscGradepoints" placeholder="Enter SSC Gradepoints")
+          .form-group
+            label Inter Marks %:
+            input(type="text" name="interMarks" placeholder="Enter Inter Marks %")
+          .form-group
+            label Inter Gradepoints:
+            input(type="text" name="interGradepoints" placeholder="Enter Inter Gradepoints")
+          .form-group
+            label EAMCET Rank:
+            input(type="text" name="eamcetRank" placeholder="Enter EAMCET Rank")
+          .form-group
+            label Seat Type:
+            input(type="text" name="seatType" placeholder="Enter Seat Type")
+          .form-group
+            label Caste:
+            input(type="text" name="caste" placeholder="Enter Caste")
+          .form-group
+            label Joining Date:
+            input(type="date" name="joiningDate")
+          .form-group
+            label Phone No:
+            input(type="number" name="contact" placeholder="Enter Phone No")
+          .form-group
+            label Email:
+            input(type="email" name="email" placeholder="Enter Email")
+          .form-group
+            label Profile Photo:
+            input(type="file" name="profilePhoto" accept="image/*")
+          .form-group
+            label Blood Group:
+            input(type="text" name="bloodGroup" placeholder="Enter Blood Group")
+          .form-group
+            label Father's Name:
+            input(type="text" name="fatherName" placeholder="Enter Father's Name")
+          .form-group
+            label Mother's Name:
+            input(type="text" name="motherName" placeholder="Enter Mother's Name")
+          .form-group
+            label Aadhar No:
+            input(type="number" name="aadharNo" placeholder="Enter Aadhar No")
+          .form-group
+            label Guardian Contact:
+            input(type="number" name="guardianContact" placeholder="Enter Guardian Contact")
+          .form-group
+            label Address:
+            textarea(name="address" rows="2" placeholder="Enter Address")
+          .form-group
+            label Languages:
+            input(type="text" name="languages" placeholder="Enter Languages")
+          .submit-btn
+            button(type="submit") Submit
+
+      #attendanceForm(style="display: none;")
+        form(action="/attendance" method="POST")
+          h2 Mark Attendance
+          .form-group
+            label(for="rollNo") Roll Number:
+            input(type="text" name="rollNo" required placeholder="Enter Roll No")
+          .form-group
+            label(for="subject") Subject:
+            select(name="subject" required)
+              option(value="Maths") Maths
+              option(value="Physics") Physics
+              option(value="Chemistry") Chemistry
+              option(value="C Programming") C Programming
+              option(value="English") English
+          .form-group
+            label(for="status") Status:
+            select(name="status" required)
+              option(value="P") Present
+              option(value="A") Absent
+          .submit-btn
+            button(type="submit") Submit
+      #userregisterform(style="display: none;")
+        form(action="/userregister" method="POST") 
+          .form-group 
+            label(for="name") Username:
+            input(type="text" name="name" required placeholder="Enter Username")
+            label(for="password") Password:
+            input(type="password" name="password" required placeholder="Enter Password")
+          .submit-btn
+              button(type="submit") Submit
+    script.
+      function showForm(formType) {
+        document.getElementById('studentForm').style.display = formType === 'student' ? 'block' : 'none';
+        document.getElementById('attendanceForm').style.display = formType === 'attendance' ? 'block' : 'none';
+        document.getElementById('userregisterform').style.display = formType === 'userregister' ? 'block' : 'none';
+
+      }

@@ -1,0 +1,27 @@
+{
+  "name": "pugit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "pdfkit": "^0.16.0",
+    "pdfkit-table": "^0.1.99",
+    "pug": "^3.0.3",
+    "typescript": "^5.8.2"
+  }
+}
